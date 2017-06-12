@@ -16,9 +16,9 @@ use Yii;
  */
 class Brand extends \yii\db\ActiveRecord
 {
-    public $imgFile;
+    // public $imgFile;
     //状态选择
-    static public $statusOptions=[1=>'正常',0=>'隐藏',-1=>'sc'];
+    static public $statusOptions=[1=>'正常',0=>'隐藏',-1=>'删除'];
     public static function tableName()
     {
         return 'brand';
@@ -35,7 +35,7 @@ class Brand extends \yii\db\ActiveRecord
             [['sort', 'status'], 'integer'],
             [['name'], 'string', 'max' => 50],
             [['logo'], 'string', 'max' => 255],
-            ['imgFile','file','extensions'=>['jpg','png','gif']],//'skipOnEmpty'=>false这个图片不一定有，所以不一定要xie
+            //['imgFile','file','extensions'=>['jpg','png','gif']],//'skipOnEmpty'=>false这个图片不一定有，所以不一定要xie
         ];
     }
 

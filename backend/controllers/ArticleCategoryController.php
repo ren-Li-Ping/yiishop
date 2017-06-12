@@ -18,6 +18,7 @@ class ArticleCategoryController extends \yii\web\Controller
         if($model->load(\Yii::$app->request->post())){
             //验证数据
             if($model->validate()){
+
                 //保存数据
                 $model->save();
                 return $this->redirect(['article-category/index']);
