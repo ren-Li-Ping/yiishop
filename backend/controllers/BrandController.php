@@ -139,7 +139,7 @@ class BrandController extends \yii\web\Controller
 
 
 
-    //七牛云测试上传
+   /* //七牛云测试上传
     public function actionTest(){
         $ak = 'z8Gigpm3a0saKkcOnitN-7CRt0GnITWcMT-2BdxK';
         $sk = 'OOBdSLq2xQCvc65An6qRzLU_Mqy1ymxMchXAY9Xq';
@@ -153,5 +153,5 @@ class BrandController extends \yii\web\Controller
         $rs = $qiniu->uploadFile($fileName,$key);
         $url = $qiniu->getLink($key);
         var_dump($url);
-    }
+    }*/
 }

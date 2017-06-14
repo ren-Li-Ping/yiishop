@@ -20,7 +20,7 @@ class ArticleCategoryController extends \yii\web\Controller
             if($model->validate()){
 
                 //保存数据
-                $model->save();
+                $model->save(false);
                 return $this->redirect(['article-category/index']);
             }
         }
