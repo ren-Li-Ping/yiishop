@@ -1,6 +1,7 @@
 <?php
 namespace backend\controllers;
 
+use backend\models\User;
 use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -70,13 +71,12 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
+        //先判断用户是否登录
+        $user = new User();
+        //再登录
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            return $this->redirect();
         } else {
             return $this->render('login', [
                 'model' => $model,
