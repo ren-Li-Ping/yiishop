@@ -9,19 +9,19 @@
         <th>最后登录时间</th>
         <th>操作</th>
     </tr>
-    <?php foreach($users as $user):?>
+    <?php foreach($models as $model):?>
         <tr>
-            <td><?=$user->username?></td>
-            <td><?=$user->email?></td>
-            <td><?=$user->status?></td>
-            <td><?=date('Y-m-d H:i:s',$user->created_at)?></td>
-            <td><?=date('Y-m-d H:i:s',$user->updated_at)?></td>
-            <td><?=$user->ip_end?></td>
-            <td><?=date('Y-m-d H:i:s',$user->end_time)?></td>
+            <td><?=$model->username?></td>
+            <td><?=$model->email?></td>
+            <td><?=$model->status?></td>
+            <td><?=date('Y-m-d H:i:s',$model->created_at)?></td>
+            <td><?=date('Y-m-d H:i:s',$model->updated_at)?></td>
+            <td><?=$model->ip_end?></td>
+            <td><?=date('Y-m-d H:i:s',$model->end_time)?></td>
             <td>
-                <?=\yii\bootstrap\Html::a('修改',['user/edit','id'=>$user->id],['class'=>'btn btn-info btn-sm'])?>
+                <?=\yii\bootstrap\Html::a('修改',['user/edit','id'=>$model->id],['class'=>'btn btn-info btn-sm'])?>
 
-                <?=\yii\bootstrap\Html::a('删除',['user/del','id'=>$user->id],['class'=>'btn btn-info btn-sm'])?>
+                <?=\yii\bootstrap\Html::a('删除',['user/del','id'=>$model->id],['class'=>'btn btn-info btn-sm'])?>
             </td>
         </tr>
     <?php endforeach;?>

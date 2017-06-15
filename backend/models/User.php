@@ -1,36 +1,19 @@
 <?php
 namespace backend\models;
 
-
-
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
 class User extends ActiveRecord implements IdentityInterface{
-
 
     public $password;//保存密码的明文
     /*
      * 定义场景
      */
     const SCENARIO_ADD = 'add';
-    //const SCENARIO_REGISTER = 'register';
-
-    /*public function scenarios()
-    {
-        $scenarios = [
-            self::SCENARIO_LOGIN => ['username', 'password_hash'],
-            //self::SCENARIO_REGISTER => ['username', 'password_hash','email'],
-        ];
-        return ArrayHelper::merge($scenarios,parent::scenarios());
-    }*/
-
-    /**
-     * @inheritdoc
-     */
     public static function tableName()
     {
-        return 'admin';
+        return 'user';
     }
 
     /**
@@ -43,10 +26,10 @@ class User extends ActiveRecord implements IdentityInterface{
             ['password','required','on'=>self::SCENARIO_ADD],
             //限制密码长度8-32位
             ['password','string','length'=>[8,32],'tooShort'=>'密码太短了'],
-            [['status', 'created_at', 'updated_at', 'last_login_time'], 'integer'],
+            [['status', 'created_at', 'updated_at', 'end_time'], 'integer'],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
-            [['last_login_ip'], 'string', 'max' => 15],
+            [['ip_end'], 'string', 'max' => 15],
             [['username'], 'unique'],//on指定验证规则生效场景
             [['email'], 'unique'],
             [['email'], 'email'],
@@ -61,16 +44,16 @@ class User extends ActiveRecord implements IdentityInterface{
     {
         return [
             'id' => 'ID',
-            'username' => 'Username',
+            'username' => '用户名',
             'auth_key' => 'Auth Key',
-            'password_hash' => 'Password Hash',
+            'password' => '密码',
             'password_reset_token' => 'Password Reset Token',
-            'email' => 'Email',
+            'email' => '电子邮箱',
             'status' => 'Status',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-            'last_login_time' => 'Last Login Time',
-            'last_login_ip' => 'Last Login Ip',
+            'end_time' => '最后登录时间',
+            'ip_end' => 'ip_end',
         ];
     }
 
