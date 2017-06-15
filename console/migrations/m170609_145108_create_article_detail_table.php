@@ -14,7 +14,7 @@ class m170609_145108_create_article_detail_table extends Migration
     {
         $this->createTable('article_detail', [
 //            article_id	primaryKey	文章id
-            'article_id'=>$this->integer()->comment('文章ID')->notNull()->primaryKey(),
+            'article_id'=>$this->primaryKey()->comment('文章ID'),
 //            content	text	简介
             'content'=>$this->text()->comment('文章内容')->notNull(),
         ]);
